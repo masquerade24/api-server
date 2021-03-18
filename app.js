@@ -3,12 +3,16 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const dotenv = require('dotenv');
+const passport = require('passport');
 
 const { sequelize } = require('./models');
+const passportConfig = require('./passport');
 
 dotenv.config();
 
 const app = express();
+
+passportConfig();
 
 const userRoute = require('./routes/user');
 const drugRoute = require('./routes/drug');
@@ -34,6 +38,9 @@ then(() => {
 }).catch(err => {
     console.log('연결 실패', err);
 });
+
+app.use(passport.initialize());app.use(passport.initialize()); // 요청(req)에 passport 설정을 심는다.
+app.use(passport.session()); // req.session 객체에 passport 정보를 저장한다.
 
 app.use('/user', userRoute);
 app.use('/drug', drugRoute);

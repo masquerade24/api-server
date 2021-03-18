@@ -13,5 +13,7 @@ router.post('/login', userController.login);
 // }), (req, res) => {
 //     res.redirect('/');
 // });
+router.get('/kakao', userController.kakaoLogin);
+router.get('/kakao/callback', userController.kakaoCallback, userController.kakaoCallback2);
 
 module.exports = router;
