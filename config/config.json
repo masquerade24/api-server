@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "MySQL 설치할 때 비밀번호를 여기다 적어주세요",
+    "password": "계정 비밀번호 바꾸는거 잊지마세요",
     "database": "wtm_api_test2",
     "host": "127.0.0.1",
     "dialect": "mysql"

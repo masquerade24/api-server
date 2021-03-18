@@ -9,7 +9,6 @@ function signUp(req, res) {
             if (result) {
                 res.status(409).json({
                     message: "Email already exists!",
-                    test: '테스트틑트'
                 });
             } else {
                 bcryptjs.genSalt(10, function (err, salt) {
@@ -24,7 +23,6 @@ function signUp(req, res) {
                             .then(result => {
                                 res.status(201).json({
                                     message: 'User created successfully',
-                                    test: '테스트트'
                                 })
                             })
                             .catch(error => { // user 생성 실패!

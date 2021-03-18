@@ -3,14 +3,12 @@ const models = require('../models/');
 
 function search(req, res) {
     try {
-        hsptInfo(req.body.address, req.body.hsptNm, async (error, info) => { // 콜백문제 해결해야함 프라미스화 해줘야 하는듯
-            const a = await info;
+        hsptInfo(req.body.address, req.body.hsptNm, (error, info) => { // 콜백문제 해결해야함 프라미스화 해줘야 하는듯
+            console.log('병원정보 검색 수행');
             res.status(200).json({
-                telno: a,
-                //telno: a["telno"],
-                // hsptUrl: a["hospUrl"],
-                // addr: a["addr"],
-                test: '안녕 나는 테스트야',
+                telno: info["telno"],
+                hsptUrl: info["hospUrl"],
+                addr: info["addr"],
             })
         })
     } catch (error) {
