@@ -62,7 +62,7 @@ exports.save = (req, res) => {
                         sideEffect: info["seQesitm"].replace(/(<p>|<\/p>)+/g, '\n').trim(),
                         depositMethod: info["depositMethodQesitm"].replace(/(<p>|<\/p>)+/g, '\n').trim(),
                         itemImage: info["itemImage"],
-                        user_id: req.params.id,
+                        UserId: req.user.id,
                     })
                 })
                 res.status(201).json({
